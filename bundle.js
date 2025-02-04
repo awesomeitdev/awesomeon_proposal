@@ -17156,7 +17156,7 @@ instance.use(Browser).use(initReactI18next).init({
 
 var root = client.createRoot(document.getElementById('root'));
 root.render(/*#__PURE__*/react.createElement(react.StrictMode, null, /*#__PURE__*/react.createElement(BrowserRouter, {
-  basename: "/awesomeon_proposal"
+  basename: "/awesomeone_proposal"
 }, /*#__PURE__*/react.createElement(src_App, null))));
 })();
 
