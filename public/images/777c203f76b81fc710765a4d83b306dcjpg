@@ -1,4 +1,0 @@
-var assets = [{"format":"webp","width":948,"height":845,"type":"image/webp","name":"pexels-cottonbro-8088493.webp"},{"format":"jpeg","width":948,"height":845,"type":"image/jpeg","name":"pexels-cottonbro-8088493.jpg"}];
-assets[0].url = __webpack_public_path__ + assets[0].name;
-assets[1].url = __webpack_public_path__ + assets[1].name;
-module.exports = assets;

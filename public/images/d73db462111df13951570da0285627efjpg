@@ -1,4 +1,0 @@
-var assets = [{"format":"webp","width":949,"height":816,"type":"image/webp","name":"vision-connected-car.webp"},{"format":"jpeg","width":949,"height":816,"type":"image/jpeg","name":"vision-connected-car.jpg"}];
-assets[0].url = __webpack_public_path__ + assets[0].name;
-assets[1].url = __webpack_public_path__ + assets[1].name;
-module.exports = assets;

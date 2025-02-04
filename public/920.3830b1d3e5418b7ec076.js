@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproposal_web=self.webpackChunkproposal_web||[]).push([[920],{920:(e,s,p)=>{p.r(s),p.d(s,{default:()=>a});const a="https://one.awesomeit.co.kr/images/ba97c659bce8948118c1e75802e2e4b4png"}}]);
