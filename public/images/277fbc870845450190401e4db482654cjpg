@@ -1,0 +1,4 @@
+var assets = [{"format":"webp","width":1280,"height":494,"type":"image/webp","name":"smartphone-5692534_1280.webp"},{"format":"jpeg","width":1280,"height":494,"type":"image/jpeg","name":"smartphone-5692534_1280.jpg"}];
+assets[0].url = __webpack_public_path__ + assets[0].name;
+assets[1].url = __webpack_public_path__ + assets[1].name;
+module.exports = assets;

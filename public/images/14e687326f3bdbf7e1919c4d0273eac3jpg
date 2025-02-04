@@ -1,0 +1,4 @@
+var assets = [{"format":"webp","width":951,"height":813,"type":"image/webp","name":"Knox_jpg-1024x760.webp"},{"format":"jpeg","width":951,"height":813,"type":"image/jpeg","name":"Knox_jpg-1024x760.jpg"}];
+assets[0].url = __webpack_public_path__ + assets[0].name;
+assets[1].url = __webpack_public_path__ + assets[1].name;
+module.exports = assets;

@@ -1,32 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Shield, 
-  Smartphone, 
-  Layout, 
-  Settings, 
-  Users, 
-  Mail, 
-  Phone,
-  Clock,
-  Check
-} from 'lucide-react';
-import awesomeitLogo from '../assets/images/awesomeit_logo.png';
 import { useTranslation } from 'react-i18next';
-import entertainmentImg from '../assets/images/entertainment.png';
-import educationImg from '../assets/images/education.png';
-import heroBackgroundImg from '../assets/images/smartphone-5692534_1280.jpg';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { styles } from '../styles/common';
+import { FaCheck as Check } from 'react-icons/fa';
+import { FiSettings as Settings, FiUsers as Users, FiShield as Shield, FiLayout as Layout, FiPhone as Phone, FiMail as Mail, FiClock as Clock } from 'react-icons/fi';
+import heroBackgroundImg from '../assets/images/smartphone-5692534_1280.jpg';
+
+// 컴포넌트 지연 로딩
+const LazyHeader = lazy(() => import('../components/Header'));
+const LazyFooter = lazy(() => import('../components/Footer'));
 
 // 이미지 URL을 상수로 정의
 const IMAGES = {
-  // heroBackground: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
   heroBackground: heroBackgroundImg,
-  // intuitiveInterface: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
   intuitiveInterface: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
-  // customization: 'https://images.unsplash.com/photo-1551434678-e076c223a692',
   customization: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80'
 };
 
@@ -94,7 +81,9 @@ const EMMSolutionPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Suspense fallback={<div></div>}>
+        <LazyHeader />
+      </Suspense>
       {/* Main Content */}
       <main className="pt-20">
         {/* Hero Section */}
@@ -125,9 +114,10 @@ const EMMSolutionPage = () => {
                   {t('hero.button')}
                 </button>
                 <button 
-                  onClick={goToEMM}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors">
-                  {t('hero.learnMore')}
+                  onClick={() => window.location.href = 'https://one-console.awesomeit.co.kr/'}
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
+                >
+                  {t('hero.consoleMove')}
                 </button>
               </div>
             </div>
@@ -625,7 +615,9 @@ const EMMSolutionPage = () => {
         </section>
       </main>
 
-      <Footer />
+      <Suspense fallback={<div></div>}>
+        <LazyFooter />
+      </Suspense>
     </div>
   );
 };

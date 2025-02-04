@@ -1,0 +1,4 @@
+var assets = [{"format":"webp","width":1061,"height":848,"type":"image/webp","name":"education.webp"},{"format":"jpeg","width":1061,"height":848,"type":"image/jpeg","name":"education.jpg"}];
+assets[0].url = __webpack_public_path__ + assets[0].name;
+assets[1].url = __webpack_public_path__ + assets[1].name;
+module.exports = assets;
