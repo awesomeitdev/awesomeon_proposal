@@ -1,0 +1,240 @@
+{
+  "hero": {
+    "title": "어썸잇 EMM",
+    "subtitle": "기업의 모바일 디바이스를 위한 완벽한 통합 관리 솔루션.\n강력한 보안과 효율적인 관리로 비즈니스 생산성을 극대화하세요.",
+    "button": "무료 체험하기",
+    "learnMore": "자세히 알아보기"
+  },
+  "features": {
+    "intuitive": {
+      "title": "직관적인 관리 환경",
+      "description": "복잡한 설정 없이도 쉽고 간단하게 디바이스를 관리할 수 있습니다. IT 관리자의 업무 효율을 높이는 스마트한 인터페이스를 제공합니다.",
+      "bullets": [
+        "단계별 설정 마법사로 빠른 시작",
+        "드래그 앤 드롭으로 쉽게 만드는 키오스크 모드",
+        "실시간 디바이스 모니터링 및 원격 지원"
+      ]
+    },
+    "customization": {
+      "title": "유연한 맞춤 설정",
+      "description": "각 기업의 특성과 요구사항에 맞춰 완벽한 디바이스 관리 환경을 구성할 수 있습니다.",
+      "bullets": [
+        "상세한 정책 설정 및 그룹별 관리",
+        "다양한 플랫폼 지원 (Android, iOS, Windows)",
+        "업무용/개인용 공간 분리 기능"
+      ]
+    },
+    "fullManagement": {
+      "title": "Full Management",
+      "description": "기업 소유의 디바이스를 위한 완벽한 관리 환경을 제공합니다.\n강력한 보안 정책과 세밀한 제어 기능으로 조직의 요구사항에 맞는 디바이스 환경을 구성할 수 있습니다.",
+      "bullets": [
+        "완전한 기기 제어 및 정책 적용",
+        "키오스크 모드 지원",
+        "상세한 시스템 및 보안 정책 설정"
+      ]
+    },
+    "workProfile": {
+      "title": "Work Profile",
+      "description": "개인 소유 디바이스의 업무 공간을 안전하게 분리하여 관리합니다.\n업무와 개인 영역의 완벽한 분리로 보안성과 사용자 편의성을 모두 만족시킵니다.",
+      "bullets": [
+        "업무용/개인용 공간 완벽 분리",
+        "선택적 정책 적용으로 유연한 관리",
+        "개인 프라이버시 보호"
+      ],
+      "comingSoon": "Work Profile 기능은 추후 지원 예정입니다."
+    }
+  },
+  "nav": {
+    "coreFeatures": "핵심 기능",
+    "technicalInfo": "기술 정보",
+    "contact": "도입 문의"
+  },
+  "managementModes": {
+    "title": "관리 모드",
+    "fullManagement": {
+      "title": "Full Management",
+      "description": "기업 소유 기기를 위한 완벽한 제어 환경을 제공합니다.\n강력한 보안과 세밀한 제어로 조직의 요구사항에 맞는 환경을 구성합니다.",
+      "bullets": [
+        "완전한 기기 제어 및 정책 적용",
+        "키오스크 모드 지원"
+      ]
+    },
+    "semiManage": {
+      "title": "Semi Manage",
+      "description": "기업 소유 기기에서 개인 계정과 앱 설치를 허용하며 유연하게 관리합니다.\n보안 요구사항을 충족하면서도 개인 사용을 위한 자율성을 제공합니다.",
+      "bullets": [
+        "기기의 모든 설정과 앱을 회사에서 관리",
+        "개인 계정 로그인 및 개인 앱 설치 허용",
+        "보안 정책의 완전한 적용",
+        "키오스크 모드 지원"
+      ]
+    },
+    "workProfile": {
+      "title": "Work Profile",
+      "description": "개인 소유 디바이스의 업무 공간을 안전하게 분리하여 관리합니다.\n업무와 개인 영역의 완벽한 분리로 보안성과 사용자 편의성을 모두 만족시킵니다.",
+      "bullets": [
+        "업무용/개인용 공간 완벽 분리",
+        "선택적 정책 적용으로 유연한 관리"
+      ],
+      "comingSoon": "Work Profile 관리 모드는 추후 지원 예정입니다."
+    }
+  },
+  "coreFeatures": {
+    "title": "핵심 기능",
+    "mdm": {
+      "title": "MDM",
+      "deviceControl": {
+        "title": "단말 제어",
+        "items": [
+          "최신 프로필 업데이트",
+          "재부팅",
+          "화면 잠금",
+          "분실 모드 활성화/비활성화",
+          "공장 초기화",
+          "단말 위치 확인"
+        ]
+      },
+      "systemPolicy": {
+        "title": "시스템 정책",
+        "items": [
+          "카메라 사용 제어",
+          "화면 캡처 제어",
+          "시스템 자동 업데이트 관리",
+          "날짜 및 시간 변경 제어",
+          "개발자 모드 접근 제어"
+        ]
+      },
+      "networkPolicy": {
+        "title": "네트워크 정책",
+        "items": [
+          "모바일 네트워크 제어",
+          "Wi-Fi 설정",
+          "VPN 설정",
+          "데이터 사용량 모니터링"
+        ]
+      }
+    },
+    "security": {
+      "title": "보안 정책",
+      "screenLock": {
+        "title": "화면 잠금 정책",
+        "items": [
+          "비밀번호 수준 및 잠금 요구사항",
+          "키가드 설정",
+          "화면 시간 초과 제어",
+          "잠금 화면 메시지 관리"
+        ]
+      },
+      "location": {
+        "title": "위치 및 통신 정책",
+        "items": [
+          "위치 기능 제어",
+          "비행기 모드 관리",
+          "전화/SMS 기능 제어",
+          "데이터 로밍 관리"
+        ]
+      }
+    },
+    "mam": {
+      "title": "MAM",
+      "appPolicy": {
+        "title": "앱 정책",
+        "items": [
+          {
+            "title": "앱 설치 유형 관리",
+            "subitems": [
+              "강제 설치 (제거 가능/불가능)",
+              "선택적 설치",
+              "차단",
+              "키오스크 모드"
+            ]
+          },
+          "앱 권한 정책 설정",
+          "최소 버전 관리",
+          "자동 업데이트 제어"
+        ]
+      },
+      "kioskMode": {
+        "title": "키오스크 모드",
+        "items": [
+          "전원 버튼 동작 제어",
+          "시스템 오류 표시 관리",
+          "내비게이션 기능 제어",
+          "상태 표시줄 관리",
+          "설정 앱 접근 제어"
+        ]
+      }
+    }
+  },
+  "industrySolutions": {
+    "title": "산업별 특화 기능",
+    "entertainment": {
+      "title": "엔터테인먼트/키오스크",
+      "description": "키오스크 환경에 최적화된 설정을 제공합니다.\n안전하고 통제된 사용자 경험을 제공합니다.",
+      "features": [
+        "고급 키오스크 모드 설정",
+        "시스템 UI 커스터마이징",
+        "앱 실행 제한"
+      ]
+    },
+    "education": {
+      "title": "교육",
+      "description": "집중적인 학습 환경을 제공합니다.\n학생 프라이버시를 보호하고 콘텐츠 접근을 관리합니다.",
+      "features": [
+        "앱 사용 제어",
+        "화면 잠금 정책",
+        "콘텐츠 보안"
+      ]
+    }
+  },
+  "technicalInfo": {
+    "title": "기술 정보",
+    "androidVersion": {
+      "title": "지원 Android 버전",
+      "versions": {
+        "workProfile": {
+          "name": "Work Profile",
+          "version": "Android 8.0+"
+        },
+        "fullManagement": {
+          "name": "Full Management",
+          "version": "Android 7.0+"
+        }
+      },
+      "comingSoon": "추후 지원 예정"
+    },
+    "systemRequirements": {
+      "title": "시스템 요구사항",
+      "items": [
+        "Google Mobile Services (GMS) 인증 Android 단말",
+        "Google Play Services 설치",
+        "Google Play Store 접근 가능",
+        "인터넷 연결 가능"
+      ]
+    }
+  },
+  "support": {
+    "title": "도입 문의 & 지원",
+    "contact": {
+      "title": "연락처",
+      "phone": "02-856-0604",
+      "email": "sales-support@awesomeit.co.kr"
+    },
+    "serviceLevel": {
+      "title": "서비스 수준",
+      "basic": "24/7/365 기본 서비스 운영",
+      "support": "평일 09:00~17:00 기술 지원",
+      "emergency": "24시간 긴급 장애 대응",
+      "inspection": "월 1회 정기 점검 실시"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 awesomeit. All rights reserved.",
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "language": {
+      "ko": "한국어",
+      "en": "English"
+    }
+  }
+} 

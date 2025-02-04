@@ -1,0 +1,202 @@
+{
+  "hero": {
+    "title": "Awesomeit EMM",
+    "subtitle": "Complete integrated management solution.\nMaximize business productivity with powerful security and efficient management.",
+    "button": "Start Free Trial",
+    "learnMore": "Learn More"
+  },
+  "nav": {
+    "coreFeatures": "Core Features",
+    "technicalInfo": "Technical Info",
+    "contact": "Contact"
+  },
+  "managementModes": {
+    "title": "Management Modes",
+    "fullManagement": {
+      "title": "Full Management",
+      "description": "Provides complete control environment for corporate-owned devices.\nConfigure environments that meet organizational requirements with powerful security.",
+      "bullets": [
+        "Complete device control and policy enforcement",
+        "Kiosk mode support"
+      ]
+    },
+    "workProfile": {
+      "title": "Work Profile",
+      "description": "Securely manages work space on personal devices.\nAchieves perfect balance of security and convenience through space separation.",
+      "bullets": [
+        "Personal/Work Space Separation",
+        "Flexible Policy Application"
+      ],
+      "comingSoon": "Work Profile management mode will be supported in the future."
+    }
+  },
+  "features": {
+    "fullManagement": {
+      "title": "Full Management",
+      "description": "Provides complete management environment for corporate devices.\nConfigure device environments that meet organizational requirements with powerful security policies and detailed control features.",
+      "bullets": [
+        "Complete device control and policy enforcement",
+        "Kiosk mode support",
+        "Detailed system and security policy settings"
+      ]
+    },
+    "workProfile": {
+      "comingSoon": "Work Profile feature will be supported in the future."
+    }
+  },
+  "coreFeatures": {
+    "title": "Core Features",
+    "mdm": {
+      "title": "MDM",
+      "deviceControl": {
+        "title": "Device Control",
+        "items": [
+          "Latest Profile Updates",
+          "Reboot",
+          "Screen Lock",
+          "Lost Mode Enable/Disable",
+          "Factory Reset",
+          "Device Location"
+        ]
+      },
+      "systemPolicy": {
+        "title": "System Policy",
+        "items": [
+          "Camera Usage Control",
+          "Screen Capture Control",
+          "System Auto-Update Management",
+          "Date & Time Change Control",
+          "Developer Mode Access Control"
+        ]
+      },
+      "networkPolicy": {
+        "title": "Network Policy",
+        "items": [
+          "Mobile Network Control",
+          "Wi-Fi Configuration",
+          "VPN Settings",
+          "Data Usage Monitoring"
+        ]
+      }
+    },
+    "security": {
+      "title": "Security Policy",
+      "screenLock": {
+        "title": "Screen Lock Policy",
+        "items": [
+          "Password Level & Lock Requirements",
+          "KeyGuard Settings",
+          "Screen Timeout Control",
+          "Lock Screen Message Management"
+        ]
+      },
+      "location": {
+        "title": "Location & Communication Policy",
+        "items": [
+          "Location Feature Control",
+          "Airplane Mode Management",
+          "Phone/SMS Feature Control",
+          "Data Roaming Management"
+        ]
+      }
+    },
+    "mam": {
+      "title": "MAM",
+      "appPolicy": {
+        "title": "App Policy",
+        "items": [
+          {
+            "title": "App Installation Type Management",
+            "subitems": [
+              "Forced Installation (Removable/Non-removable)",
+              "Optional Installation",
+              "Blocked",
+              "Kiosk Mode"
+            ]
+          },
+          "App Permission Policy Settings",
+          "Minimum Version Management",
+          "Auto-Update Control"
+        ]
+      },
+      "kioskMode": {
+        "title": "Kiosk Mode",
+        "items": [
+          "Power Button Behavior Control",
+          "System Error Display Management",
+          "Navigation Feature Control",
+          "Status Bar Management",
+          "Settings App Access Control"
+        ]
+      }
+    }
+  },
+  "industrySolutions": {
+    "title": "Industry Solutions",
+    "entertainment": {
+      "title": "Entertainment/Kiosk",
+      "description": "Optimize device settings for kiosk environments.\nProvide secure and controlled user experiences.",
+      "features": [
+        "Advanced Kiosk Mode Settings",
+        "System UI Customization",
+        "App Execution Control"
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "description": "Enable focused learning environments.\nProtect student privacy and manage content access.",
+      "features": [
+        "App Usage Control",
+        "Screen Lock Policy",
+        "Content Security"
+      ]
+    }
+  },
+  "technicalInfo": {
+    "title": "Technical Information",
+    "androidVersion": {
+      "title": "Supported Android Versions",
+      "versions": {
+        "workProfile": {
+          "name": "Work Profile",
+          "version": "Android 8.0+"
+        },
+        "fullManagement": {
+          "name": "Full Management",
+          "version": "Android 7.0+"
+        }
+      },
+      "comingSoon": "Coming Soon"
+    },
+    "systemRequirements": {
+      "title": "System Requirements",
+      "items": [
+        "Google Mobile Services (GMS) certified Android device",
+        "Google Play Services installed",
+        "Google Play Store access",
+        "Internet Connection Available"
+      ]
+    }
+  },
+  "support": {
+    "title": "Contact & Support",
+    "description": "Get comprehensive support for your EMM implementation.\nAccess technical expertise and regular maintenance services.",
+    "serviceLevel": {
+      "title": "Service Level",
+      "description": "Experience reliable service operations.\nReceive timely support and regular system maintenance.",
+      "basic": "24/7/365 Basic Service Operation.\nEnsure continuous system availability.",
+      "support": "Technical Support (Weekdays 09:00-17:00).\nGet expert assistance when needed.",
+      "emergency": "24/7 Emergency Response.\nRapid resolution for critical issues.",
+      "inspection": "Monthly Regular Inspection.\nProactive system maintenance."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 awesomeit. All rights reserved.",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "language": {
+      "ko": "한국어",
+      "en": "English"
+    }
+  }
+} 
