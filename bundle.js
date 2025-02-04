@@ -2398,7 +2398,7 @@ module.exports = {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/awesomeon_proposal/";
+/******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
