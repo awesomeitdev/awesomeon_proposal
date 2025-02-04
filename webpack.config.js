@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: 'https://awesomeitdev.github.io/awesomeone_proposal/'
+    publicPath: 'https://one.awesomeit.co.kr/'
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'images/[hash][ext][query]',
-          publicPath: 'https://awesomeitdev.github.io/awesomeone_proposal/'
+          publicPath: 'https://one.awesomeit.co.kr/'
         }
       }
     ]
