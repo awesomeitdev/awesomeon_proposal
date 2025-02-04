@@ -12177,7 +12177,7 @@ const Clock = createLucideIcon("Clock", [
 //# sourceMappingURL=clock.js.map
 
 ;// ./src/assets/images/awesomeit_logo.png
-const awesomeit_logo_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/377687f69731157258fe.png";
+const awesomeit_logo_namespaceObject = "https://one.awesomeit.co.kr/images/377687f69731157258fe.png";
 // EXTERNAL MODULE: ./node_modules/void-elements/index.js
 var void_elements = __webpack_require__(915);
 var void_elements_default = /*#__PURE__*/__webpack_require__.n(void_elements);
@@ -12943,11 +12943,11 @@ const es_select = () => '';
 const plural = () => '';
 const selectOrdinal = () => '';
 ;// ./src/assets/images/entertainment.png
-const entertainment_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/2e40cfa315d006990174.png";
+const entertainment_namespaceObject = "https://one.awesomeit.co.kr/images/2e40cfa315d006990174.png";
 ;// ./src/assets/images/education.png
-const education_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/579b2a1320a3774ebc9e.png";
+const education_namespaceObject = "https://one.awesomeit.co.kr/images/579b2a1320a3774ebc9e.png";
 ;// ./src/assets/images/smartphone-5692534_1280.jpg
-const smartphone_5692534_1280_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/d0dbe79c8ccdc786c001.jpg";
+const smartphone_5692534_1280_namespaceObject = "https://one.awesomeit.co.kr/images/d0dbe79c8ccdc786c001.jpg";
 ;// ./src/components/Header.js
 
 
@@ -13598,19 +13598,19 @@ var EMMSolutionPage = function EMMSolutionPage() {
 };
 /* harmony default export */ const EMM = (EMMSolutionPage);
 ;// ./src/assets/images/vision-connected-car.jpg
-const vision_connected_car_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/10ba53b136621db984d9.jpg";
+const vision_connected_car_namespaceObject = "https://one.awesomeit.co.kr/images/10ba53b136621db984d9.jpg";
 ;// ./src/assets/images/Knox_jpg-1024x760.jpg
-const Knox_jpg_1024x760_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/93fce5f3298ef2172f9b.jpg";
+const Knox_jpg_1024x760_namespaceObject = "https://one.awesomeit.co.kr/images/93fce5f3298ef2172f9b.jpg";
 ;// ./src/assets/images/pexels-thisisengineering-3862610.jpg
-const pexels_thisisengineering_3862610_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/3f8377a969513c05c688.jpg";
+const pexels_thisisengineering_3862610_namespaceObject = "https://one.awesomeit.co.kr/images/3f8377a969513c05c688.jpg";
 ;// ./src/assets/images/pexels-cottonbro-8088493.jpg
-const pexels_cottonbro_8088493_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/43d6330922121ed7038e.jpg";
+const pexels_cottonbro_8088493_namespaceObject = "https://one.awesomeit.co.kr/images/43d6330922121ed7038e.jpg";
 ;// ./src/assets/images/whyawesomeit.png
-const whyawesomeit_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/fa9aae36dc93befff33c.png";
+const whyawesomeit_namespaceObject = "https://one.awesomeit.co.kr/images/fa9aae36dc93befff33c.png";
 ;// ./src/assets/images/companyintroduction.png
-const companyintroduction_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/aa380c034a3cd9882093.png";
+const companyintroduction_namespaceObject = "https://one.awesomeit.co.kr/images/aa380c034a3cd9882093.png";
 ;// ./src/assets/images/certificationimage.png
-const certificationimage_namespaceObject = "https://awesomeitdev.github.io/awesomeone_proposal/images/84f8d3282dc8ba3d09f9.png";
+const certificationimage_namespaceObject = "https://one.awesomeit.co.kr/images/84f8d3282dc8ba3d09f9.png";
 ;// ./src/pages/CompanyPage.js
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
