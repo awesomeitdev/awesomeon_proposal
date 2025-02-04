@@ -13214,9 +13214,11 @@ var EMMSolutionPage = function EMMSolutionPage() {
     onClick: handleFreeTrialClick,
     className: "bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
   }, t('hero.button')), /*#__PURE__*/react.createElement("button", {
-    onClick: goToEMM,
+    onClick: function onClick() {
+      return window.location.href = 'https://one-console.awesomeit.co.kr/';
+    },
     className: "border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
-  }, t('hero.learnMore')))))), /*#__PURE__*/react.createElement("section", {
+  }, t('hero.consoleMove')))))), /*#__PURE__*/react.createElement("section", {
     className: "py-24"
   }, /*#__PURE__*/react.createElement("div", {
     className: "container mx-auto px-6 max-w-7xl"
