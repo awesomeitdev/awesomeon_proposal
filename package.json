@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "gh-pages": "^6.3.0",
     "i18next": "^23.7.16",
     "i18next-browser-languagedetector": "^8.0.2",
     "lucide-react": "^0.284.0",
@@ -36,6 +37,9 @@
   "scripts": {
     "start": "npx webpack serve --mode development --open",
     "build": "npx webpack --mode production",
-    "dev": "npx webpack serve --port 3001"
-  }
+    "dev": "npx webpack serve --port 3001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
+  },
+  "homepage": "https://awesomeitdev.github.io/awesomeone_proposal/"
 }

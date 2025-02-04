@@ -1,12 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
+
+  optimization: {
+    minimize: false
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: 'https://awesomeitdev.github.io/awesomeone_proposal/'
   },
   module: {
     rules: [
@@ -28,7 +32,8 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[hash][ext][query]'
+          filename: 'images/[hash][ext][query]',
+          publicPath: 'https://awesomeitdev.github.io/awesomeone_proposal/'
         }
       }
     ]
