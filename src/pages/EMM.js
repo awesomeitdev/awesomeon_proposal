@@ -1,14 +1,10 @@
-import React, { Suspense, lazy } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styles } from '../styles/common';
 import { FaCheck as Check } from 'react-icons/fa';
 import { FiSettings as Settings, FiUsers as Users, FiShield as Shield, FiLayout as Layout, FiPhone as Phone, FiMail as Mail, FiClock as Clock } from 'react-icons/fi';
 import heroBackgroundImg from '../assets/images/smartphone-5692534_1280.jpg';
-
-// 컴포넌트 지연 로딩
-const LazyHeader = lazy(() => import('../components/Header'));
-const LazyFooter = lazy(() => import('../components/Footer'));
 
 // 이미지 URL을 상수로 정의
 const IMAGES = {
@@ -20,72 +16,117 @@ const IMAGES = {
 const EMMSolutionPage = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const mounted = useRef(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const cleanupRef = useRef(() => {});
 
-  // 컴포넌트 마운트 시 한국어로 설정
-  React.useEffect(() => {
-    i18n.changeLanguage('ko');
+  // 초기 마운트 처리
+  useEffect(() => {
+    mounted.current = true;
+    let timeoutId;
+    
+    const init = async () => {
+      try {
+        if (mounted.current) {
+        await i18n.changeLanguage('ko');
+          timeoutId = setTimeout(() => {
+            if (mounted.current) {
+          setIsLoading(false);
+            }
+          }, 100);
+        }
+      } catch (error) {
+        console.error('Initialization failed:', error);
+        if (mounted.current) {
+        setIsLoading(false);
+        }
+      }
+    };
+
+    init();
+
+    return () => {
+      mounted.current = false;
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      cleanupRef.current();
+    };
   }, [i18n]);
 
-  // 해시 링크 처리를 위한 useEffect 추가
-  React.useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
+  // 스크롤 처리
+  useEffect(() => {
+    if (!mounted.current || isLoading) return;
 
-  const scrollToSection = (sectionId) => {
+    let scrollTimeoutId;
+    const handleScroll = () => {
+      if (scrollTimeoutId) {
+        clearTimeout(scrollTimeoutId);
+      }
+
+      scrollTimeoutId = setTimeout(() => {
+      try {
+          if (!mounted.current) return;
+          
+      const hash = location.hash.replace('#', '');
+    if (hash) {
+        const element = document.getElementById(hash);
+            if (element && mounted.current) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } catch (error) {
+        console.error('Scroll handling failed:', error);
+      }
+      }, 100);
+    };
+
+    handleScroll();
+    
+    return () => {
+      if (scrollTimeoutId) {
+        clearTimeout(scrollTimeoutId);
+      }
+    };
+  }, [location.hash, isLoading]);
+
+  const handleNavigation = useCallback((path) => {
+    if (!mounted.current) return;
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [navigate]);
+
+  const scrollToSection = useCallback((sectionId) => {
+    if (!mounted.current || isLoading) return;
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, [isLoading]);
 
-  const goToHome = () => {
-    navigate('/emm');
-    window.scrollTo(0, 0);
-  };
+  const goToHome = useCallback(() => handleNavigation('/emm'), [handleNavigation]);
+  const goToCompany = useCallback(() => handleNavigation('/company'), [handleNavigation]);
+  const goToEMM = useCallback(() => handleNavigation('/emmintroduce'), [handleNavigation]);
+  const goToFAQ = useCallback(() => handleNavigation('/faq'), [handleNavigation]);
+  const goToContactPage = useCallback(() => handleNavigation('/contact'), [handleNavigation]);
 
-  const goToCompany = () => {
-    navigate('/company');
-    window.scrollTo(0, 0);
-  };
-
-  const goToEMM = () => {
-    navigate('/emmintroduce');
-    window.scrollTo(0, 0);
-  };
-
-  const goToFAQ = () => {
-    navigate('/faq');
-    window.scrollTo(0, 0);
-  };
-
-  const goToContactPage = () => {
-    navigate('/contact');
-    window.scrollTo(0, 0);
-  };
-
-  const handleLanguageChange = (e) => {
+  const handleLanguageChange = useCallback((e) => {
     const lang = e.target.value;
     i18n.changeLanguage(lang);
-  };
+  }, [i18n]);
 
-  const handleFreeTrialClick = () => {
-    alert('도입 문의를 통해 무료 체험을 신청해 주세요.');
+  const handleFreeTrialClick = useCallback(() => {
+    alert(t('alerts.freeTrial'));
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSfodzPClwTO9-DUORIfJgg6S0Or2mXXC8Gsh1fM1Z243PCYHQ/viewform?usp=header', '_blank');
-  };
+  }, [t]);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Suspense fallback={<div></div>}>
-        <LazyHeader />
-      </Suspense>
+    <div className="pt-20">
       {/* Main Content */}
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white">
           {/* 배경 이미지 오버레이 */}
@@ -98,24 +139,24 @@ const EMMSolutionPage = () => {
           />
           
           {/* 컨텐츠 */}
-          <div className="relative container mx-auto px-4 lg:px-8 max-w-screen-xl py-32">
+          <div className="relative container mx-auto px-4 lg:px-8 max-w-screen-xl py-16 md:py-32">
             <div className="max-w-3xl">
-              <h1 className="text-6xl font-bold mb-8">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8">
                 AwesomeONE
               </h1>
-              <p className="text-2xl mb-12 opacity-90 leading-relaxed whitespace-pre-line">
+              <p className="text-lg md:text-2xl mb-8 md:mb-12 opacity-90 leading-relaxed whitespace-pre-line">
                 {t('hero.subtitle')}
               </p>
-              <div className="flex gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <button 
                   onClick={handleFreeTrialClick}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
+                  className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-blue-50 transition-colors w-full sm:w-auto text-center"
                 >
                   {t('hero.button')}
                 </button>
                 <button 
-                  onClick={() => window.location.href = 'https://one-console.awesomeit.co.kr/'}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
+                  onClick={() => window.open('https://one-console.awesomeit.co.kr/', '_blank')}
+                  className="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-white/10 transition-colors w-full sm:w-auto text-center"
                 >
                   {t('hero.consoleMove')}
                 </button>
@@ -125,65 +166,65 @@ const EMMSolutionPage = () => {
         </section>
 
         {/* 특징 섹션들 */}
-        <section className="py-24">
-          <div className="container mx-auto px-6 max-w-7xl">
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
             {/* 첫 번째 특징 */}
-            <div className="flex items-center gap-16 mb-32">
-              <div className="w-1/2">
-                <h2 className="text-4xl font-bold mb-6">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-16 md:mb-32">
+              <div className="w-full md:w-1/2">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">
                   {t('features.fullManagement.title')}
                 </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed whitespace-pre-line">
+                <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed whitespace-pre-line">
                   {t('features.fullManagement.description')}
                 </p>
                 <ul className="space-y-4">
                   {t('features.fullManagement.bullets', { returnObjects: true })?.map((bullet, index) => (
                     <li key={index} className="flex items-start gap-4">
                       <div className="mt-1">
-                        <Check className="w-6 h-6 text-blue-600" />
+                        <Check className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                       </div>
-                      <span className="text-lg text-gray-700">{bullet}</span>
+                      <span className="text-base md:text-lg text-gray-700">{bullet}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <img 
                   src={IMAGES.intuitiveInterface}
                   alt="Full Management"
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl w-full"
                 />
               </div>
             </div>
 
             {/* 두 번째 특징 */}
-            <div className="flex flex-row-reverse items-center gap-16">
-              <div className="w-1/2">
-                <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-4">
                   {t('features.workProfile.title')}
                   <span className={styles.badge}>
-                    추후 지원 예정
+                    {t('common.comingSoon')}
                   </span>
                 </h2>
-                <p className="text-gray-600 text-lg mb-6 whitespace-pre-line">
+                <p className="text-base md:text-lg text-gray-600 mb-6 whitespace-pre-line">
                   {t('features.workProfile.description')}
                 </p>
                 <ul className="space-y-4">
                   {t('features.workProfile.bullets', { returnObjects: true })?.map((bullet, index) => (
                     <li key={index} className="flex items-start gap-4">
                       <div className="mt-1">
-                        <Check className="w-6 h-6 text-blue-600" />
+                        <Check className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                       </div>
-                      <span className="text-lg text-gray-700">{bullet}</span>
+                      <span className="text-base md:text-lg text-gray-700">{bullet}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <img 
                   src={IMAGES.customization}
                   alt="Work Profile"
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl w-full"
                 />
               </div>
             </div>
@@ -193,13 +234,13 @@ const EMMSolutionPage = () => {
         {/* Management Modes */}
         <section className={`${styles.section} ${styles.bgSecondary}`}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               {t('managementModes.title')}
             </h2>
-            <div className={styles.grid3Cols}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               <div className={styles.card}>
                 <h3 className={styles.h3}>
-                  Full Manage 모드
+                  {t('managementModes.fullManagement.title')}
                 </h3>
                 <p className={styles.paragraph}>
                   {t('managementModes.fullManagement.description')}
@@ -211,15 +252,15 @@ const EMMSolutionPage = () => {
                       <>
                         <li className="flex items-center text-base">
                           <Settings className={styles.icon} />
-                          기기의 모든 설정과 앱을 회사에서 관리
+                          {t('managementModes.fullManagement.features.deviceControl')}
                         </li>
                         <li className="flex items-center text-base">
                           <Users className={styles.icon} />
-                          개인 계정 로그인 및 개인 앱 설치 제한
+                          {t('managementModes.fullManagement.features.accountControl')}
                         </li>
                         <li className="flex items-center text-base">
                           <Shield className={styles.icon} />
-                          보안 정책의 완전한 적용
+                          {t('managementModes.fullManagement.features.security')}
                         </li>
                         <li className="flex items-center text-base">
                           <Layout className={styles.icon} />
@@ -234,7 +275,7 @@ const EMMSolutionPage = () => {
               {/* Semi Manage Mode */}
               <div className={styles.card}>
                 <h3 className={styles.h3}>
-                  {t('managementModes.semiManage.title')} 모드
+                  {t('managementModes.semiManage.title')} {t('common.mode')}
                 </h3>
                 <p className={styles.paragraph}>
                   {t('managementModes.semiManage.description')}
@@ -258,9 +299,9 @@ const EMMSolutionPage = () => {
               {/* Split Control Mode */}
               <div className={styles.card}>
                 <h3 className={`${styles.h3} flex items-center gap-4`}>
-                  Split Control 모드
+                  {t('managementModes.workProfile.title')} {t('common.mode')}
                   <span className={styles.badge}>
-                    추후 지원 예정
+                    {t('common.comingSoon')}
                   </span>
                 </h3>
                 <p className={styles.paragraph}>
@@ -273,19 +314,19 @@ const EMMSolutionPage = () => {
                       <>
                         <li className="flex items-center text-base">
                           <Layout className={styles.icon} />
-                          업무용과 개인용 영역을 분리하여 관리
+                          {t('managementModes.workProfile.features.separation')}
                         </li>
                         <li className="flex items-center text-base">
                           <Users className={styles.icon} />
-                          개인 영역은 자유롭게 사용 가능
+                          {t('managementModes.workProfile.features.personalUse')}
                         </li>
                         <li className="flex items-center text-base">
                           <Shield className={styles.icon} />
-                          업무 영역만 회사 정책 적용
+                          {t('managementModes.workProfile.features.workSecurity')}
                         </li>
                         <li className="flex items-center text-base">
                           <Settings className={styles.icon} />
-                          기존 사용중인 기기에 바로 적용 가능
+                          {t('managementModes.workProfile.features.easyApply')}
                         </li>
                       </>
                     );
@@ -299,10 +340,10 @@ const EMMSolutionPage = () => {
         {/* Core Features */}
         <section id="core-features" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               {t('coreFeatures.title')}
             </h2>
-            <div className={styles.grid3Cols}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {/* MDM */}
               <div className={styles.card}>
                 <h3 className={styles.h3}>
@@ -506,10 +547,10 @@ const EMMSolutionPage = () => {
         {/* Technical Info */}
         <section id="technical-info" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               {t('technicalInfo.title')}
             </h2>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto px-4">
               <div className={styles.card}>
                 <h3 className={styles.h3}>
                   {t('technicalInfo.androidVersion.title')}
@@ -558,14 +599,14 @@ const EMMSolutionPage = () => {
           </div>
         </section>
 
-        {/* 고객 지원 */}
+        {/* Support Section */}
         <section id="support-contact" className={`${styles.section} ${styles.bgSecondary}`}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>
-              고객 지원
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              {t('support.title')}
             </h2>
             <div className="max-w-4xl mx-auto">
-              <div className={styles.grid2Cols}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div className={styles.card}>
                   {(() => {
                     const contact = t('support.contact', { returnObjects: true });
@@ -614,10 +655,6 @@ const EMMSolutionPage = () => {
           </div>
         </section>
       </main>
-
-      <Suspense fallback={<div></div>}>
-        <LazyFooter />
-      </Suspense>
     </div>
   );
 };

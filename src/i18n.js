@@ -21,9 +21,14 @@ i18n
     resources,
     fallbackLng: 'ko',
     lng: 'ko',
-    debug: true,
+    debug: false,
     interpolation: {
       escapeValue: false
+    },
+    load: 'languageOnly',
+    preload: ['ko', 'en'],
+    react: {
+      useSuspense: false
     }
   });
 

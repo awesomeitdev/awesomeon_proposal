@@ -1,9 +1,16 @@
 {
+  "header": {
+    "awesomeone": "AwesomeONE",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "company": "Company Website"
+  },
   "hero": {
     "title": "Awesomeit EMM",
     "subtitle": "Complete integrated management solution.\nMaximize business productivity with powerful security and efficient management.",
     "button": "Start Free Trial",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "consoleMove": "Go to Console"
   },
   "nav": {
     "coreFeatures": "Core Features",
@@ -18,16 +25,38 @@
       "bullets": [
         "Complete device control and policy enforcement",
         "Kiosk mode support"
+      ],
+      "features": {
+        "deviceControl": "All device settings and apps managed by company",
+        "accountControl": "Restricted personal account login and app installation",
+        "security": "Complete security policy enforcement"
+      }
+    },
+    "semiManage": {
+      "title": "Semi Manage",
+      "description": "Flexibly manage corporate devices while allowing personal accounts and app installations.\nProvides autonomy for personal use while meeting security requirements.",
+      "bullets": [
+        "All device settings and apps managed by company",
+        "Personal account login and app installation allowed",
+        "Complete security policy enforcement",
+        "Kiosk mode support"
       ]
     },
     "workProfile": {
       "title": "Work Profile",
       "description": "Securely manages work space on personal devices.\nAchieves perfect balance of security and convenience through space separation.",
       "bullets": [
-        "Personal/Work Space Separation",
-        "Flexible Policy Application"
+        "Perfect separation of work/personal spaces",
+        "Flexible management with selective policy application",
+        "Personal privacy protection"
       ],
-      "comingSoon": "Work Profile management mode will be supported in the future."
+      "comingSoon": "Work Profile management mode will be supported in the future.",
+      "features": {
+        "separation": "Separate management of work and personal spaces",
+        "personalUse": "Unrestricted personal space usage",
+        "workSecurity": "Company policies applied to work space only",
+        "easyApply": "Instantly applicable to existing devices"
+      }
     }
   },
   "features": {
@@ -41,6 +70,13 @@
       ]
     },
     "workProfile": {
+      "title": "Work Profile",
+      "description": "Securely manages work space on personal devices.\nAchieves perfect balance of security and convenience through space separation.",
+      "bullets": [
+        "Perfect separation of work/personal spaces",
+        "Flexible management with selective policy application",
+        "Personal privacy protection"
+      ],
       "comingSoon": "Work Profile feature will be supported in the future."
     }
   },
@@ -181,6 +217,11 @@
   "support": {
     "title": "Contact & Support",
     "description": "Get comprehensive support for your EMM implementation.\nAccess technical expertise and regular maintenance services.",
+    "contact": {
+      "title": "Contact",
+      "phone": "02-856-0604",
+      "email": "sales-support@awesomeit.co.kr"
+    },
     "serviceLevel": {
       "title": "Service Level",
       "description": "Experience reliable service operations.\nReceive timely support and regular system maintenance.",
@@ -197,6 +238,104 @@
     "language": {
       "ko": "한국어",
       "en": "English"
+    },
+    "company": {
+      "address": "1015, 225 Gasan digital 1-ro, Geumcheon-gu, Seoul, Korea",
+      "registration": "BRN: 276-88-01002",
+      "ceo": "CEO: Byeonggyu Yu",
+      "business_license": "Online Marketing Business License: 2024-Seoul Geumcheon-1220"
+    }
+  },
+  "common": {
+    "mode": "Mode",
+    "comingSoon": "Coming Soon"
+  },
+  "alerts": {
+    "freeTrial": "Please request a free trial through the Contact Us form."
+  },
+  "emmIntroduce": {
+    "title": "About AwesomeONE",
+    "whatIsEmm": {
+      "title": "What is EMM?",
+      "description1": "EMM (Enterprise Mobility Management) is a solution that comprehensively manages mobile devices, applications, and content within an enterprise. The main purpose is to efficiently manage employees' mobile device usage and securely protect enterprise data.",
+      "description2": "EMM systematically manages enterprise mobile devices through provisioning. By automating the entire lifecycle from device registration to app installation and security policy application, it reduces IT administrators' workload and strengthens enterprise security."
+    },
+    "whatIsProvisioning": {
+      "title": "What is Provisioning?",
+      "description": "Provisioning is the process of automatically configuring and managing enterprise mobile devices. It greatly improves IT administrators' work efficiency by automating device registration, app installation, security policy application, and network settings."
+    },
+    "whenToUseEmm": {
+      "title": "When EMM is Needed",
+      "situations": [
+        "When mobile device management is needed in remote/hybrid work environments",
+        "When enterprise critical data needs to be securely protected in mobile environments",
+        "When efficient management of multiple employee mobile devices is required",
+        "When implementing BYOD (Bring Your Own Device) policies",
+        "When mobile security compliance is required"
+      ]
+    },
+    "awesomeoneFeatures": {
+      "title": "AwesomeONE Features",
+      "description": "AwesomeONE is an innovative solution that achieves both IT administrator convenience and solution reliability.",
+      "adminConvenience": {
+        "title": "IT Administrator Convenience",
+        "features": [
+          "Intuitive admin dashboard",
+          "Automated device registration and setup",
+          "Real-time monitoring and remote support",
+          "Easy policy configuration and deployment"
+        ]
+      },
+      "reliability": {
+        "title": "Solution Reliability",
+        "features": [
+          "Strong security features",
+          "Stable system operation",
+          "Proven technology",
+          "24/7 technical support"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "videoTutorials": {
+      "title": "Video Tutorials",
+      "videos": [
+        {
+          "title": "How to Sign Up"
+        },
+        {
+          "title": "How to Set Up Apps"
+        },
+        {
+          "title": "How to Provision"
+        }
+      ]
+    },
+    "frequentlyAskedQuestions": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "question": "What is EMM?",
+          "answer": "EMM (Enterprise Mobility Management) is a solution that manages and secures mobile devices in enterprise environments. It provides various features including device management, app management, and content management."
+        },
+        {
+          "question": "What is Provisioning?",
+          "answer": "Provisioning is the process of granting EMM management authority to mobile devices. This enables the application of corporate security policies and efficient device management."
+        },
+        {
+          "question": "What is the pricing policy?",
+          "answer": "Pricing is based on device licenses, with both basic and premium plans available. Please contact our sales team for detailed pricing information."
+        },
+        {
+          "question": "Can I try it for free?",
+          "answer": "If you would like to try it for free, please request a free trial through our Contact form."
+        },
+        {
+          "question": "What languages are supported?",
+          "answer": "We currently support Korean and English, with plans to support additional languages in the future."
+        }
+      ]
     }
   }
 } 

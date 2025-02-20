@@ -32,44 +32,24 @@ module.exports = (env, argv) => {
           extractComments: false,
         }),
       ],
-      splitChunks: isDevelopment ? false : {
+      splitChunks: {
         chunks: 'all',
+        maxInitialRequests: 10,
         minSize: 20000,
-        minChunks: 1,
-        maxAsyncRequests: 30,
-        maxInitialRequests: 30,
-        enforceSizeThreshold: 50000,
         cacheGroups: {
-          defaultVendors: {
+          vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
-            priority: -10,
-            reuseExistingChunk: true,
-          },
-          react: {
-            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-            name: 'react',
-            chunks: 'all',
-            priority: 20,
-          },
-          commons: {
-            name: 'commons',
-            minChunks: 2,
-            chunks: 'async',
-            priority: 10,
-            reuseExistingChunk: true,
-            enforce: true
           }
-        },
+        }
       },
-      runtimeChunk: isDevelopment ? false : 'single',
-      moduleIds: isDevelopment ? 'named' : 'deterministic'
+      runtimeChunk: 'single'
     },
     output: {
       path: path.resolve(__dirname, 'public'),
       filename: isDevelopment ? '[name].bundle.js' : '[name].[contenthash].js',
-      chunkFilename: isDevelopment ? '[name].chunk.js' : '[name].[chunkhash].js',
+      chunkFilename: isDevelopment ? '[id].[name].chunk.js' : '[id].[chunkhash].chunk.js',
       publicPath: '/',
       clean: !isDevelopment
     },
@@ -97,10 +77,25 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader', 'postcss-loader']
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                sourceMap: isDevelopment
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: isDevelopment
+              }
+            }
+          ]
         },
         {
-          test: /\.(png|jpg|jpeg)$/i,
+          test: /\.(png|jpg|jpeg|webp)$/i,
           use: [
             {
               loader: 'file-loader',
@@ -128,16 +123,15 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'public/index.html'),
+        template: path.resolve(__dirname, 'src/index.html'),
         filename: 'index.html',
         inject: true,
-        minify: !isDevelopment
+        minify: !isDevelopment,
+        chunks: 'all'
       }),
-      !isDevelopment && new CompressionPlugin({
+      new CompressionPlugin({
         test: /\.(js|css|html|svg)$/,
-        algorithm: 'gzip',
-        threshold: 10240,
-        minRatio: 0.8,
+        algorithm: 'gzip'
       }),
       process.env.ANALYZE && new BundleAnalyzerPlugin()
     ].filter(Boolean),
@@ -147,16 +141,25 @@ module.exports = (env, argv) => {
       static: {
         directory: path.join(__dirname, 'public'),
       },
-      hot: true,
+      hot: false,
+      liveReload: true,
       host: '0.0.0.0',
       client: {
-        overlay: true,
+        overlay: {
+          errors: true,
+          warnings: false,
+        },
         progress: true,
-        reconnect: true
+        reconnect: 5,
       },
       open: true,
       compress: true,
-      watchFiles: ['src/**/*', 'public/**/*'],
+      watchFiles: {
+        paths: ['src/**/*', 'public/**/*'],
+        options: {
+          usePolling: false,
+        }
+      },
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
